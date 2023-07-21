@@ -310,9 +310,9 @@ if selected == "GDID":
                 df1 = df0[headers3]
                 df1 = df1.astype({"Base SKU": 'str'})
                 df1.sort_values(by='Base SKU', ascending=True, inplace=True) # Sort by Base coulmn
-                df1.to_excel("{}/Digitization Template.xlsx".format(download_folder), index=False)
+                df1.to_excel("Digitization Template.xlsx", index=False)
 
-                wb = load_workbook("{}/Digitization Template.xlsx".format(download_folder), data_only=True)
+                wb = load_workbook("Digitization Template.xlsx", data_only=True)
                 ws = wb.active 
 
                 ws.insert_rows(1) # for validation/gap filling required   
@@ -397,8 +397,8 @@ if selected == "GDID":
                 ws.freeze_panes = ws["I3"]
                 ws.auto_filter.ref = "A2:{}{}".format(get_column_letter(ws.max_column), ws.max_row)
             
-                wb.save("{}/Digitization Template.xlsx".format(download_folder))
-                os.startfile("{}/Digitization Template.xlsx".format(download_folder))
+                wb.save("Digitization Template.xlsx")
+                os.startfile("Digitization Template.xlsx")
             else:
                 st.warning("You may have uploded a wrong report.", icon="ℹ️")
         else:
